@@ -1236,54 +1236,6 @@ extension NSNumber {
     }
 }
 
-func == (lhs: NSNumber, rhs: NSNumber) -> Bool {
-    switch (lhs.isBool, rhs.isBool) {
-    case (false, true): return false
-    case (true, false): return false
-    default:            return lhs.compare(rhs) == .orderedSame
-    }
-}
-
-func != (lhs: NSNumber, rhs: NSNumber) -> Bool {
-    return !(lhs == rhs)
-}
-
-func < (lhs: NSNumber, rhs: NSNumber) -> Bool {
-
-    switch (lhs.isBool, rhs.isBool) {
-    case (false, true): return false
-    case (true, false): return false
-    default:            return lhs.compare(rhs) == .orderedAscending
-    }
-}
-
-func > (lhs: NSNumber, rhs: NSNumber) -> Bool {
-
-    switch (lhs.isBool, rhs.isBool) {
-    case (false, true): return false
-    case (true, false): return false
-    default:            return lhs.compare(rhs) == ComparisonResult.orderedDescending
-    }
-}
-
-func <= (lhs: NSNumber, rhs: NSNumber) -> Bool {
-
-    switch (lhs.isBool, rhs.isBool) {
-    case (false, true): return false
-    case (true, false): return false
-    default:            return lhs.compare(rhs) != .orderedDescending
-    }
-}
-
-func >= (lhs: NSNumber, rhs: NSNumber) -> Bool {
-
-    switch (lhs.isBool, rhs.isBool) {
-    case (false, true): return false
-    case (true, false): return false
-    default:            return lhs.compare(rhs) != .orderedAscending
-    }
-}
-
 public enum writingOptionsKeys {
 	case jsonSerialization
 	case castNilToNSNull
